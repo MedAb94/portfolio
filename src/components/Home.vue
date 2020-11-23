@@ -12,10 +12,9 @@
                             <v-btn
                                     class="mx-2"
                                     fab
-                                    color="#ff5000"
-
+                                    color="deep-purple accent-4"
                             >
-                                <v-icon>mdi-github</v-icon>
+                                <v-icon color="white" x-large>mdi-github</v-icon>
                             </v-btn>
                             <v-btn
                                     class="mx-2"
@@ -25,7 +24,7 @@
 
                             >
                                 <router-link :to="{ name: 'Contact' }" tag="span">
-                                    <v-icon dark>
+                                    <v-icon x-large color="white">
                                         mdi-pencil
                                     </v-icon>
                                 </router-link>

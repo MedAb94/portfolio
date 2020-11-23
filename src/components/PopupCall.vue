@@ -13,7 +13,7 @@
                     v-bind="attrs"
                     v-on="on"
             >
-                <v-icon>mdi-phone</v-icon>
+                <v-icon x-large>mdi-phone</v-icon>
             </v-btn>
         </template>
 
