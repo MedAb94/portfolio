@@ -5,7 +5,7 @@
     <v-main>
       <router-view />
     </v-main>
-    <app-footer></app-footer>
+    <app-footer/>
   </v-app>
 </template>
 
@@ -13,6 +13,7 @@
 import Navbar from "@/components/Navbar.vue";
 import AppFooter from "@/components/Footer.vue";
 import TestNav from "@/components/TestNav.vue";
+
 export default {
   name: "App",
   components: {
@@ -20,6 +21,7 @@ export default {
     AppFooter,
     TestNav
   },
+
 };
 </script>
 <style>

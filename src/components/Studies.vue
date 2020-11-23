@@ -24,88 +24,70 @@
                 />
             </v-col>
         </v-row>
-        <h3>Degrees</h3>
-        <div>
-            <v-simple-table fixed-header>
-                <template v-slot:default>
-                    <thead>
-                    <tr>
-                        <th class="text-left">
-                            Name
-                        </th>
-                        <th class="text-left">
-                            Year
-                        </th>
-                        <th class="text-left">
-                            Establishment
-                        </th>
-                        <th class="text-left">
-                            Mention
-                        </th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr v-for="(d, index) in degrees" :key="index">
-                        <td><strong>{{d.name }}</strong></td>
-                        <td>{{d.year }}</td>
-                        <td>{{d.establishment }}</td>
-                        <td>{{d.mention }}</td>
-                    </tr>
-                    </tbody>
-                </template>
-            </v-simple-table>
-        </div>
+        <h1 class="mb-5">
+            <v-icon>mdi-certificate-outline</v-icon>
+            Degrees
+        </h1>
+        <v-expansion-panels>
+            <v-expansion-panel
+                    v-for="(d, index) in degrees" :key="index"
+            >
+                <v-expansion-panel-header>
+                    <v-row>
+                        <v-col><strong>{{d.name }}</strong></v-col>
+<!--                        <v-col>{{d.field }}</v-col>-->
+                        <v-col>{{d.year }}</v-col>
+                        <v-col>{{d.establishment }}</v-col>
+                        <v-col>{{d.mention }}</v-col>
+                    </v-row>
+                </v-expansion-panel-header>
+                <v-expansion-panel-content>
+                    {{d.description }}
+                </v-expansion-panel-content>
+            </v-expansion-panel>
+        </v-expansion-panels>
 
-        <h3>Trainings</h3>
-        <v-simple-table fixed-header>
-            <template v-slot:default>
-                <thead>
-                <tr>
-                    <th class="text-left">
-                        Name
-                    </th>
-                    <th class="text-left">
-                        Year
-                    </th>
-                    <th class="text-left">
-                        Establishment
-                    </th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr v-for="n in 3" :key="n">
-                    <td>Licence</td>
-                    <td>2020</td>
-                    <td>ISCAE</td>
-                </tr>
-                </tbody>
-            </template>
-        </v-simple-table>
-        <h3>Honors</h3>
-        <v-simple-table fixed-header>
-            <template v-slot:default>
-                <thead>
-                <tr>
-                    <th class="text-left">
-                        Name
-                    </th>
-                    <th class="text-left">
-                        Year
-                    </th>
-                    <th class="text-left">
-                        Establishment
-                    </th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr v-for="n in 3" :key="n">
-                    <td>Licence</td>
-                    <td>2020</td>
-                    <td>ISCAE</td>
-                </tr>
-                </tbody>
-            </template>
-        </v-simple-table>
+        <h1 class="my-5">
+            <v-icon>mdi-file-certificate-outline</v-icon>
+            Trainings
+        </h1>
+        <v-expansion-panels>
+            <v-expansion-panel
+                    v-for="(d, index) in trainings" :key="index"
+            >
+                <v-expansion-panel-header>
+                    <v-row>
+                        <v-col><strong>{{d.name }}</strong></v-col>
+                        <v-col>{{d.year }}</v-col>
+                        <v-col>{{d.field }}</v-col>
+                    </v-row>
+                </v-expansion-panel-header>
+                <v-expansion-panel-content>
+                    {{d.description }}
+                </v-expansion-panel-content>
+            </v-expansion-panel>
+        </v-expansion-panels>
+        <h1 class="my-5">
+            <v-icon>mdi-medal-outline</v-icon>
+            Honors
+        </h1>
+        <v-expansion-panels>
+            <v-expansion-panel
+                    v-for="(d, index) in honors" :key="index"
+            >
+                <v-expansion-panel-header>
+                    <v-row>
+                        <v-col><strong>{{d.name }}</strong></v-col>
+                        <v-col>{{d.year }}</v-col>
+                        <v-col>{{d.field }}</v-col>
+                    </v-row>
+                </v-expansion-panel-header>
+                <v-expansion-panel-content>
+                    <v-col>{{d.description }}</v-col>
+
+                </v-expansion-panel-content>
+            </v-expansion-panel>
+        </v-expansion-panels>
     </v-container>
 </template>
 <script>
@@ -117,8 +99,54 @@
                     {
                         name: "Bachelor",
                         year: "2020",
+                        field: "IT",
                         establishment: "ISCAE",
                         mention: "Good",
+                        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+                    },
+                    {
+                        name: "BAC",
+                        year: "2017",
+                        field: "SCIENCES",
+                        establishment: "Nimlane High School",
+                        mention: "Good",
+                        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+                    },
+                    {
+                        name: "BAC",
+                        year: "2017",
+                        field: "Literature",
+                        establishment: "Toujounine 2 High School",
+                        mention: "Acceptable",
+                        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+                    },
+                ],
+                trainings: [
+                    {
+                        name: "3 months",
+                        year: "2017",
+                        field: "EVAD",
+                        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+                    },
+                    {
+                        name: "3 months",
+                        year: "Entrepreneurship",
+                        field: "KOSMOS",
+                        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+                    },
+                ],
+                honors: [
+                    {
+                        name: "Medal",
+                        year: "2016",
+                        field: "ARC - UEA",
+                        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+                    },
+                    {
+                        name: "Medal",
+                        year: "2016",
+                        field: "ARC - UEA",
+                        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
                     },
                 ],
             };

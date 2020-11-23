@@ -9,7 +9,6 @@
             <v-btn
                     fab
                     color="#ff5000"
-
                     v-bind="attrs"
                     v-on="on"
             >
@@ -18,7 +17,7 @@
         </template>
 
         <v-card>
-            <v-card-title class="headline deep-purple accent-4">
+            <v-card-title class="headline deep-purple accent-4 white--text">
                 Contact me
             </v-card-title>
 
@@ -27,6 +26,7 @@
                         class="mx-2"
                         fab
                         color="#25D366"
+                        href="https://api.whatsapp.com/send?phone=22243204060&text=Hello%20world%F0%9F%98%8D"
                 >
                     <v-icon color="white">mdi-whatsapp</v-icon>
                 </v-btn>
@@ -34,7 +34,7 @@
                         class="mx-2"
                         fab
                         color="green"
-
+                        href="tel:+22243204060"
                 >
                     <v-icon color="white">mdi-cellphone-iphone</v-icon>
                 </v-btn>

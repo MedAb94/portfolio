@@ -8,9 +8,13 @@
                 architecto doloremque. Iusto reiciendis est sequi? Sapiente eius
                 doloremque saepe deleniti.
             </p>
+            <div align="center">
+                <moon-loader :loading="loading" :color="'blue'" :size="size"></moon-loader>
+
+            </div>
             <v-card class="my-2" v-for="project in projects" :key="project.data().id " :class="project.data().status">
                 <v-card-text>
-                    <v-row align="center" >
+                    <v-row align="center">
                         <v-col cols="12" md="2" sm="2" xs="4">
                             <v-img
                                     :src="require('../assets/logo.png')"
@@ -18,7 +22,7 @@
                                     max-width="50px"
                             />
                         </v-col>
-                        <v-col :key="n" cols="12" md="3" sm="10" xs="8">
+                        <v-col cols="12" md="3" sm="10" xs="8">
                             <h3 class="caption">Project name :</h3>
                             <p>
                                 {{project.data().name}}
@@ -47,16 +51,23 @@
 </template>
 <script>
     import db from '@/fb'
+    import MoonLoader from 'vue-spinner/src/MoonLoader.vue'
 
     export default {
         name: "Projects",
+        components: {
+            MoonLoader
+        },
         data() {
             return {
-                projects: []
+                projects: [],
+                loading: false
             }
         },
         created() {
+            this.loading = true
             db.collection('projects').get().then(res => {
+                this.loading = false
                 console.log(res.docs)
                 this.projects = res.docs
             })
@@ -75,6 +86,7 @@
         color: white !important;
         font-weight: bold;
     }
+
     .completed {
         border-left: solid 3px blue !important;
 
