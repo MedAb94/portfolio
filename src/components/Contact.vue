@@ -5,13 +5,13 @@
             <v-row class="justify-center">
                 <v-col md="6" sm="12" blue>
                     <div align="center" class="mb-5">
-                        <h3>Happy to hear from you.</h3>
+                        <h1>Happy to hear from you.</h1>
 
                     </div>
                     <div>
                         <v-text-field
                                 outlined
-                                v-model="firstname"
+                                v-model="name"
                                 :rules="nameRules"
                                 label="You name"
                                 required
@@ -28,11 +28,10 @@
                         />
                     </div>
                     <div>
-                        <v-textarea
-                                outlined
-                                label="Your message here..."
-                                auto-grow
-
+                        <v-textarea v-model="message"
+                                    outlined
+                                    label="Your message here..."
+                                    auto-grow
                         />
                     </div>
                     <div>
@@ -58,12 +57,10 @@
                                     {{ text }}
                                 </v-chip>
 
-                                <span
-                                        v-else-if="index === 2"
-                                        class="overline grey--text text--darken-3 mx-2"
-                                >
-        +{{ files.length - 2 }} File(s)
-      </span>
+                                <span v-else-if="index === 2"
+                                      class="overline grey--text text--darken-3 mx-2"
+                                > +{{ files.length - 2 }} File(s)
+                                </span>
                             </template>
                         </v-file-input>
                     </div>
@@ -72,7 +69,8 @@
                                 block
                                 color="primary"
                                 elevation="2"
-                                :loading="false"
+                                :loading="loading"
+                                @click="sendMessage"
                         >
                             Send Message
                         </v-btn>
@@ -80,27 +78,54 @@
                 </v-col>
             </v-row>
         </v-form>
-        <!--        </v-card>-->
+        <!--</v-card>-->
     </v-container>
 </template>
 
 <script>
+    import db from '@/fb'
+    import Swal from 'sweetalert2'
+
     export default {
         data() {
             return {
                 valid: false,
-                firstname: "",
-                lastname: "",
+                name: "",
+                email: "",
+                message: '',
+                loading: false,
+                files: [],
                 nameRules: [
                     (v) => !!v || "Name is required",
                     (v) => v.length <= 10 || "Name must be less than 10 characters",
                 ],
-                email: "",
                 emailRules: [
                     (v) => !!v || "E-mail is required",
                     (v) => /.+@.+/.test(v) || "E-mail must be valid",
                 ],
             };
         },
+        methods: {
+            sendMessage() {
+                this.loading = true;
+                const message = {
+                    name: this.name,
+                    email: this.email,
+                    message: this.message,
+                    files: this.files
+                };
+                db.collection('messages').add(message).then(res => {
+                    this.loading = false;
+                    Swal.fire(
+                        'Thank you!',
+                        'I received your message successfully and I will come back to you shortly',
+                        'success',
+                    )
+                })
+            }
+        },
+        created() {
+
+        }
     };
 </script>

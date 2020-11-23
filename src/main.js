@@ -8,12 +8,11 @@ import "aos/dist/aos.css";
 Vue.config.productionTip = false;
 
 new Vue({
-  router,
-  vuetify,
-  created() {
-    AOS.init({ disable: "phone" });
+    router,
+    vuetify,
+    created() {
+        AOS.init({disable: "phone"});
+    },
 
-  },
-
-  render: (h) => h(App),
+    render: (h) => h(App),
 }).$mount("#app");
