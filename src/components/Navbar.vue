@@ -9,12 +9,11 @@
         </a>
         <v-spacer/>
 
-        <router-link
-                :to="{ name: 'Home' }"
-                tag="a"
+        <a
+                href="/"
                 v-if="this.$route.path !== '/'"
         >Home
-        </router-link
+        </a
         >
         <router-link :to="{ name: 'Studies' }" tag="a">Experience</router-link>
         <router-link :to="{ name: 'Projects' }" tag="a">Work</router-link>
