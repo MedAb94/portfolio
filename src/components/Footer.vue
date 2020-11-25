@@ -10,12 +10,12 @@
             <v-row justify="center" v-if="this.$vuetify.breakpoint.xsOnly">
                 <v-col cols="2" sm="2">
                     <v-btn class="mx-4" icon href="tel:+22243204060">
-                        <v-icon color="white" size="24px">mdi-cellphone-iphone</v-icon>
+                        <v-icon color="white" >mdi-cellphone-iphone</v-icon>
                     </v-btn>
                 </v-col>
                 <v-col cols="2" sm="2">
                     <v-btn class="mx-4" icon href="mailto: medab.vall@gmail.com">
-                        <v-icon color="white" size="24px">mdi-email</v-icon>
+                        <v-icon color="white" x-small>mdi-email</v-icon>
                     </v-btn>
                 </v-col>
                 <v-col cols="2" sm="2">

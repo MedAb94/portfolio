@@ -5,7 +5,7 @@
             <v-row class="justify-center">
                 <v-col md="6" sm="12" blue>
                     <div align="center" class="mb-5">
-                        <h1>Happy to hear from you.</h1>
+                        <h2>Happy to hear from you.</h2>
 
                     </div>
                     <div>
@@ -67,7 +67,8 @@
                     <div>
                         <v-btn
                                 block
-                                color="primary"
+                                color="deep-purple accent-4"
+                                class="white--text"
                                 elevation="2"
                                 :loading="loading"
                                 @click="sendMessage"

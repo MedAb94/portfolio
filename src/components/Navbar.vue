@@ -1,5 +1,5 @@
 <template>
-    <v-app-bar dense >
+    <v-app-bar dense color="white">
         <a href="/">
             <v-img
                     :src="require('../assets/logo.png')"
@@ -16,10 +16,10 @@
         >Home
         </router-link
         >
-        <router-link :to="{ name: 'Studies' }" tag="a">Studies</router-link>
-        <router-link :to="{ name: 'Projects' }" tag="a">Projects</router-link>
+        <router-link :to="{ name: 'Studies' }" tag="a">Experience</router-link>
+        <router-link :to="{ name: 'Projects' }" tag="a">Work</router-link>
 
-        <a href="/cv-en.pdf" target="_blank">Resume</a>
+<!--        <a href="/cv-en.pdf" target="_blank">Resume</a>-->
         <router-link :to="{ name: 'Contact' }">
             Contact
         </router-link>
@@ -34,7 +34,7 @@
 
 <style scoped lang="scss">
     a {
-        color: blue !important;
+        color: #6200EA !important;
         margin-right: 60px;
         font-weight: bolder;
     @media only screen and (max-width: 720px) {
