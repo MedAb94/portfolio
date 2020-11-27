@@ -1,6 +1,8 @@
 <template>
     <v-app-bar
             dense
+            flat
+            app
             color="white">
         <a href="/">
             <v-img
