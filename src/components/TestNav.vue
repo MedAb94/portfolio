@@ -1,60 +1,58 @@
 <template>
-    <nav class="navbar  navbar-expand-lg navbar-light bg-primary">
-      <router-link :to="{ name: 'Home' }" tag="a" class="navbar-brand">
-        <v-img
-          :src="require('../assets/logo white.png')"
-          contain
-          max-width="40px"
-        />
-      </router-link>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <router-link :to="{ name: 'Home' }" tag="a" class="nav-link"
-              >Home<span class="sr-only">(current)</span></router-link
-            >
-          </li>
-          <li class="nav-item">
-            <router-link :to="{ name: 'Studies' }" tag="a" class="nav-link"
-              >Studies</router-link
-            >
-          </li>
-          <li class="nav-item">
-            <router-link :to="{ name: 'Projects' }" tag="a" class="nav-link"
-              >Projects</router-link
-            >
-          </li>
-        </ul>
-        <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-                    <router-link to="/cv-en.pdf" class="nav-link" target="_blank">
-        Resume
-      </router-link>
-        </li>
-        <li class="nav-item">
-            <router-link :to="{name: 'Contact'}" class="nav-link">
-        Contact
-      </router-link>
-        </li>
-  </ul>
-  
-      </div>
-    </nav>
+  <div>
+    <v-navigation-drawer temporary v-model="sideNav">
+      <v-list>
+        <v-list-tile
+                v-for="item in menuItems"
+                :key="item.title"
+                :to="item.link">
+          <v-list-tile-action>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>{{ item.title }}</v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+    </v-navigation-drawer>
+    <v-toolbar dark class="primary">
+      <v-toolbar
+              @click.stop="sideNav = !sideNav"
+              class="d-md-none d-lg-none d-sm-none"></v-toolbar>
+      <v-toolbar-title>
+        <router-link to="/" tag="span" style="cursor: pointer">DevMeetup</router-link>
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-toolbar-items class="d-sm-none d-md-block d-lg-block">
+        <v-btn
+                flat
+                v-for="item in menuItems"
+                :key="item.title"
+                :to="item.link">
+          <v-icon left dark>{{ item.icon }}</v-icon>
+          {{ item.title }}
+        </v-btn>
+      </v-toolbar-items>
+    </v-toolbar>
+  </div>
 </template>
 
+
 <script>
-export default {};
+export default {
+
+    data () {
+      return {
+        sideNav: false,
+        menuItems: [
+          { icon: 'supervisor_account', title: 'View Meetups', link: '/meetups' },
+          { icon: 'room', title: 'Organize Meetup', link: '/meetup/new' },
+          { icon: 'person', title: 'Profile', link: '/profile' },
+          { icon: 'face', title: 'Sign up', link: '/signup' },
+          { icon: 'lock_open', title: 'Sign in', link: '/signin' }
+        ]
+      }
+    }
+
+};
 </script>
 <style scoped>
 a {

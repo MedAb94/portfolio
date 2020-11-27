@@ -29,10 +29,10 @@
                             I'm <span color="deep-purple accent-4" id="typed"></span>
                         </h1>
                         <p class="my-8">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet
-                            ipsum nesciunt voluptatum ex assumenda maiores ducimus, iure
-                            veritatis vitae enim sed labore incidunt dolor praesentium.
-                            Distinctio vero rerum debitis eaque?
+                           <span class="font-weight-bold" style="color: #ff5000">Greetings</span>!
+                            As long as you get here, let me welcome you in my website.
+                            I show here some of my expertises and last works.
+                            I'll be happy to hear from you for any more informations
                         </p>
                         <div>
                             <v-row>
@@ -47,12 +47,13 @@
                                     </router-link>
                                 </v-col>
                                 <v-col cols="12" md="6" sm="12" class="text-right d-none d-md-flex ">
-                                    <v-btn color="#ff5000"
-                                           class="mx-auto test pa-12"
-                                           @click="$vuetify.goTo('#about', options)"
-                                    >
-                                        <v-icon x-large color="white">mdi-chevron-double-down</v-icon>
-                                    </v-btn>
+                                    <div class="pulse mx-auto  pa-8"
+                                         @click="$vuetify.goTo('#about', options)">
+                                        <v-icon x-large color="white">
+                                            mdi-chevron-double-down
+                                        </v-icon>
+                                    </div>
+
                                 </v-col>
                             </v-row>
                         </div>
@@ -115,12 +116,13 @@
                                     <span class="list-item-value">Single</span>
                                 </li>
                             </ul>
-                            <div>
+                            <div class="text-center text-md-left">
                                 <a href="/cv-en.pdf"
                                    target="_blank"
                                    class="default-orange-btn ma-8"
                                 >
                                     Download CV
+                                    <v-icon color="white">mdi-download</v-icon>
                                 </a>
                             </div>
                         </div>
@@ -201,7 +203,7 @@
                         img: "content.png",
                         title: "Content creation",
                         text:
-                            "I like to code things from scratch, and enjoy bringing ideas to life in the browser.",
+                            "I produce marketing or educational materials that meet the interests and challenges of the target audience.",
                         title2: "Subjects I cover",
                         text2: ["Resume", "Business plan", "Cover letter"],
                     },
@@ -248,26 +250,27 @@
     .hero {
         min-height: 100vh;
     }
-        .default-orange-btn {
-            color: #fff;
-            font-weight: 500;
-            overflow: hidden;
-            position: relative;
-            border-radius: 5px;
-            padding: 15px 30px;
-            display: inline-block;
-            text-transform: capitalize;
-            background: #6200ea;
-            -webkit-transition: all 0.25s linear;
-            transition: all 0.25s linear;
-        }
 
-        .default-orange-btn:hover {
-            color: #fff;
-            background: #7f2bf5;
-            -webkit-animation: pulseOrange 1s 1 linear;
-            animation: pulseOrange 1s 1 linear;
-        }
+    .default-orange-btn {
+        color: #fff;
+        font-weight: 500;
+        overflow: hidden;
+        position: relative;
+        border-radius: 5px;
+        padding: 15px 30px;
+        display: inline-block;
+        text-transform: capitalize;
+        background: #6200ea;
+        -webkit-transition: all 0.25s linear;
+        transition: all 0.25s linear;
+    }
+
+    .default-orange-btn:hover {
+        color: #fff;
+        background: #ff5000;
+        -webkit-animation: pulseOrange 1s 1 linear;
+        animation: pulseOrange 1s 1 linear;
+    }
 
 
     .about {
@@ -298,23 +301,24 @@
         }
     }
 
-    .test {
-        left: 50% !important;
-        height: 60px;
-        width: 60px;
+
+    .pulse {
         border-radius: 50%;
-        -webkit-transition: all 0.25s linear;
-        transition: all 0.25s linear;
-        -webkit-transform: translateX(-50%);
-        transform: translateX(-50%);
-        -webkit-box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.08);
-        box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.08);
+        box-shadow: 0px 0px 1px 1px #0000001a;
+        background: #ff5000;
+        position: absolute;
+        left: 45%;
+        animation: pulse-animation 1.5s infinite;
+        cursor: pointer;
     }
 
-    .test:hover {
-        color: #fff !important;
-        background: #e64800 !important;
-        -webkit-animation: pulseOrange 1s 1 linear !important;
-        animation: pulseOrange 1s 1 linear !important;
+    @keyframes pulse-animation {
+        0% {
+            box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+        }
+        100% {
+            box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
+        }
     }
+
 </style>

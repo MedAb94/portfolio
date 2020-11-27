@@ -120,7 +120,7 @@
                 <v-expansion-panel-header>
                     <v-row>
                         <v-col><strong>{{d.name }}</strong></v-col>
-                        <v-col>{{d.year }}</v-col>
+                        <v-col v-if="!$vuetify.breakpoint.xsOnly">{{d.year }}</v-col>
                         <v-col>{{d.field }}</v-col>
                         <v-col>{{d.society }}</v-col>
                     </v-row>

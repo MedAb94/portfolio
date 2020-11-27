@@ -9,7 +9,7 @@
                 doloremque saepe deleniti.
             </p>
             <div align="center">
-                <moon-loader :loading="loading" :color="'blue'" :size="size"></moon-loader>
+                <moon-loader :loading="loading" :color="'blue'"></moon-loader>
 
             </div>
             <v-card class="my-2" v-for="project in projects" :key="project.data().id " :class="project.data().status">
@@ -86,14 +86,20 @@
         color: white !important;
         font-weight: bold;
     }
+    .v-chip.published {
+        background: green !important;
+        color: white !important;
+        font-weight: bold;
+    }
 
     .completed {
         border-left: solid 3px blue !important;
-
     }
 
     .current {
         border-left: solid 3px orangered !important;
-
+    }
+    .published {
+        border-left: solid 3px green !important;
     }
 </style>
