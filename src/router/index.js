@@ -5,6 +5,7 @@ import Studies from '../components/Studies.vue'
 import Projects from '../components/Projects.vue'
 import Contact from '../components/Contact.vue'
 import Four0Four from "../components/Four0Four";
+import Home1 from "../components/restau/Home"
 Vue.use(VueRouter)
 
 const routes = [
@@ -29,9 +30,15 @@ const routes = [
     component: Contact
   },
   {
+    path: '/restau',
+    name: 'Restau',
+    component: Home1
+  },
+  {
     path: '*',
     component: Four0Four
   },
+
 
 
 ] ;

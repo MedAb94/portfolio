@@ -11,7 +11,12 @@ new Vue({
     router,
     vuetify,
     created() {
-        AOS.init({disable: "phone"});
+        AOS.init({
+            disable: "phone",
+            duration: 800,
+            easing: "ease-in-out",
+            once: true
+        });
     },
 
     render: (h) => h(App),

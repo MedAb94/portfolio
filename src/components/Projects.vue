@@ -3,10 +3,7 @@
         <v-container>
             <h1 class="text-center mt-6">Projects I made</h1>
             <p class="mb-6">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat harum
-                facere vitae perspiciatis libero, dolore a. Ipsum, autem! Asperiores,
-                architecto doloremque. Iusto reiciendis est sequi? Sapiente eius
-                doloremque saepe deleniti.
+
             </p>
             <div align="center">
                 <moon-loader :loading="loading" :color="'blue'"></moon-loader>
@@ -26,6 +23,10 @@
                             <h3 class="caption">Project name :</h3>
                             <p>
                                 {{project.data().name}}
+                            </p>
+                            <h3 class="caption">Project Link :</h3>
+                            <p>
+                                <a :href="project.data().link" target="_blank">Visit link</a>
                             </p>
                         </v-col>
                         <v-col cols="12" md="5" sm="12" xs="12">
@@ -66,10 +67,13 @@
         },
         created() {
             this.loading = true
-            db.collection('projects').get().then(res => {
+            db.collection('projects').orderBy("order").get().then(res => {
                 this.loading = false
                 console.log(res.docs)
                 this.projects = res.docs
+            }).catch(err => {
+                console.log(err);
+                this.loading = false
             })
         }
     };
@@ -86,6 +90,7 @@
         color: white !important;
         font-weight: bold;
     }
+
     .v-chip.published {
         background: green !important;
         color: white !important;
@@ -99,6 +104,7 @@
     .current {
         border-left: solid 3px orangered !important;
     }
+
     .published {
         border-left: solid 3px green !important;
     }
